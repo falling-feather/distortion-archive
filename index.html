@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#eeeadd"/><link rel="icon" href="/favicon.svg"/><meta name="description" content="在有限容量中作出选择，把保留的理由与真实的损失一起封存。"/><title>失真档案 · 留存档案桌</title></head>
+<body>
+<div class="app-shell">
+<header class="app-header"><a class="brand" href="#" aria-label="失真档案首页"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>失真档案<small>DISTORTION ARCHIVE</small></span></a><nav aria-label="体验步骤"><button class="tab active" data-tab="workbench" aria-pressed="true">01 留存</button><button class="tab" data-tab="receiver" aria-pressed="false" disabled>02 接收</button><button class="tab" data-tab="book" aria-pressed="false">03 档案册 <span id="book-count">0</span></button></nav><div class="header-tools"><button id="scene-open">换一张情境</button><button id="image-import">本机图像 ↗</button><button id="about-open" aria-label="帮助与来源">?</button></div></header>
+<main>
+<section id="workbench" class="panel bench-panel" aria-label="留存档案桌">
+<div class="context-line"><div><p class="eyebrow" id="scene-theme">记忆 · 001</p><h1 id="scene-question">把这句话留下，还是把触感带走？</h1></div><div><button id="context-open" class="quiet">读一读情境 ↗</button><button id="reset-button" class="quiet">重置选择</button></div></div>
+<div class="bench-columns"><div id="work-image-slot" class="image-slot">
+<div id="viewer-card" class="viewer-card">
+<div class="viewer-toolbar"><div role="group" aria-label="对比来源"><button class="reference-button active" data-mode="uniform" aria-pressed="true">均匀保留</button><button class="reference-button" data-mode="original" aria-pressed="false">原图</button><button class="reference-button" data-mode="archive" id="archive-compare" aria-pressed="false" disabled>对照夹</button></div><button id="pin-current" disabled>夹入对照</button><button id="zoom-button" aria-pressed="false">⊕ 放大保护区</button></div>
+<div id="image-well" class="image-well"><div id="image-stage" class="image-stage" aria-busy="true"><canvas id="image-canvas" tabindex="0" aria-label="图像对比，拖动分界线查看前后变化，普通模式点击选择像素块，框选模式拖出保护区"></canvas><div class="image-label left" id="reference-label">均匀保留</div><div class="image-label right" id="current-label">等待编码</div><div id="hotspots" class="hotspots"></div><div id="processing" class="processing"><span class="loading-dot"></span><span id="processing-text">准备原图…</span></div></div></div>
+<div class="compare-controls"><span>← 对照</span><input id="comparison-slider" type="range" min="0" max="100" value="50" aria-label="前后对比分界线"/><span>你的选择 →</span></div>
+<div class="image-bottom"><span id="image-caption">真实 JPEG · 原图始终保留</span><strong id="actual-bytes">— 字节</strong><span id="live-status" role="status" aria-live="polite">准备图像中。</span><button id="inspect-button">拆开当前像素块 ↗</button></div>
+</div></div>
+<aside class="decision-panel" aria-label="保留与代价">
+<div class="selection-section"><p class="section-label">先选一处，更想留下的细节</p><div id="region-choices" class="region-choices" role="group" aria-label="保护区域"></div><div class="selection-tools"><button id="draw-region" aria-pressed="false">＋ 自由框选</button><button id="uniform-button">均匀保留</button><button id="clear-custom" hidden>撤销框选</button></div></div>
+<div class="budget-section"><div class="budget-title"><label for="budget-number">这份档案的容量</label><label class="budget-number"><input id="budget-number" type="number" min="1" max="1024" value="24" aria-label="容量KiB"/> KiB</label></div><div class="budget-presets" role="group" aria-label="容量预设"><button data-budget="24">24 KiB</button><button data-budget="32">32 KiB</button><button data-budget="48">48 KiB</button></div><div class="capacity-track"><i id="capacity-fill"></i></div><p id="floor-hint" class="small-muted">正在测量可达下限</p><p id="budget-spare" class="small-muted">包含完整文件开销</p></div>
+<div class="consequence"><span class="section-label">保留与代价 · 像素误差</span><div class="consequence-values"><div><span id="inside-name">保护区</span><strong id="inside-change">—</strong></div><div><span>区域之外</span><strong id="outside-change">—</strong></div></div><p id="consequence-sentence">先看画面，再决定这个取舍是否值得。</p><button id="cost-open" class="quiet">怎么理解这些差异？</button></div>
+<div class="decision-actions"><button id="save-entry" class="primary" disabled>封存这一版 <span>＋</span></button><button id="download-jpeg" class="secondary" disabled>导出 JPEG ↗</button></div>
+
+</aside></div>
+</section>
+
+<section id="receiver" class="panel receiver-panel" aria-label="接收者观看" hidden>
+<div class="context-line"><div><p class="eyebrow">把屏幕交给另一双眼睛</p><h1 id="receiver-question">收到的，还能读懂吗？</h1></div><button data-go="book" class="quiet">回到档案册 ↗</button></div>
+<div class="receiver-columns">
+<div class="receiver-stage"><div class="receiver-toolbar"><span id="receiver-image-label">接收者看到的 JPEG</span><div id="receiver-image-switch" role="group" aria-label="接收图像对照" hidden><button data-received-image="jpeg" aria-pressed="true">收到的 JPEG</button><button data-received-image="original" aria-pressed="false">原图</button></div></div>
+<div class="receiver-picture"><img id="receiver-jpeg" alt="接收者实际收到的封存 JPEG"/><img id="receiver-original" alt="第一眼之后展开的无损工作母图" hidden/></div>
+<div class="receiver-file"><span id="receiver-file"></span><span id="receiver-origin"></span></div></div>
+<aside class="receiver-note" aria-label="第一眼与原图核对"><p class="eyebrow" id="receiver-step">01 · 只收到这一份</p><h2 id="receiver-note-title">先记下你的第一眼</h2>
+<form id="receiver-form"><label for="receiver-reading">我实际读到或认出了…</label><textarea id="receiver-reading" maxlength="240" placeholder="只写能辨认的片段；不确定也可以。"></textarea><fieldset><legend>你有多确定？</legend><div class="reading-confidence"><button type="button" data-confidence="clear" aria-pressed="false">能辨认</button><button type="button" data-confidence="uncertain" aria-pressed="false">不确定</button><button type="button" data-confidence="unreadable" aria-pressed="false">无法辨认</button></div></fieldset><p id="receiver-hint" class="small-muted" aria-live="polite">先选一种辨认情况。</p><button id="receiver-reveal" class="primary" type="submit" disabled>记下第一眼，打开原图</button><p class="small-muted receiver-privacy">第一眼笔记只留在本次观看中。</p></form>
+<div id="receiver-reflection" class="receiver-reflection" hidden><span id="receiver-first-confidence" class="section-label"></span><blockquote id="receiver-first-reading"></blockquote><p class="section-label">封存者当时想留下</p><p id="receiver-reason-preview"></p><button id="receiver-details" class="quiet">展开理由与完整第一眼 ↗</button><div class="receiver-actions"><button id="receiver-continue" class="primary">带着第一眼，再选一次</button><button id="receiver-book" class="secondary">回到档案册</button></div></div>
+</aside></div>
+<dialog id="receiver-detail-dialog"><button class="dialog-close" data-close="receiver-detail-dialog" aria-label="关闭第一眼详情">×</button><p class="eyebrow">一次主观观看，不自动评分</p><h2>你的第一眼</h2><blockquote id="receiver-detail-reading"></blockquote><h2>封存者的理由</h2><blockquote id="receiver-detail-reason"></blockquote><p class="small-muted">封存图像与原有理由保持原样；第一眼笔记只留在本次观看中。</p></dialog>
+</section>
+
+<section id="analysis" class="panel analysis-panel" aria-label="频率拆解" hidden>
+<div class="context-line"><div><p class="eyebrow">同一份 JPEG，向里看一层</p><h1>一小块图像，怎样被留下？</h1></div><button data-go="workbench" class="secondary">返回留存桌 ↖</button></div>
+<div class="analysis-columns"><div id="analysis-image-slot" class="image-slot"></div><div id="frequency" class="frequency-area" aria-busy="false">
+<div class="relief-panel"><div class="relief-top"><span id="block-label">Y 亮度区块</span><span id="coefficient-count">— / 64</span></div><canvas id="frequency-canvas" tabindex="0" aria-label="频率浮雕，点击柱顶或用方向键选择系数"></canvas><div class="relief-legend"><span><i class="positive"></i>正贡献</span><span><i class="negative"></i>负贡献</span><span><i class="zero"></i>归零</span></div></div>
+<div class="block-detail"><div class="block-previews"><figure><canvas id="block-original"></canvas><figcaption>原图</figcaption></figure><figure><canvas id="block-uniform"></canvas><figcaption>均匀</figcaption></figure><figure><canvas id="block-current"></canvas><figcaption>你的选择</figcaption></figure><div class="basis-detail"><canvas id="basis-canvas" aria-label="当前余弦基底"></canvas><div><span id="frequency-name">频率</span><strong id="frequency-state">等待文件</strong><small id="frequency-values">—</small></div></div></div><p id="basis-explanation">基底与系数相乘，再叠加重建。</p><p id="trace-caption" class="small-muted">数据来自真实文件回读。</p><button id="difference-button" class="quiet" aria-pressed="false">查看实际损失 · 差异 ×4 ↗</button></div>
+</div></div>
+</section>
+
+<section id="book" class="panel book-panel" aria-label="本机档案册" hidden>
+<div class="context-line"><div><p class="eyebrow">重新打开，仍是当时的取舍</p><h1>留存档案册 <span id="book-total"></span></h1></div><div class="book-tools"><button id="book-export" class="secondary">导出整册 ↗</button><button id="book-import" class="secondary">导入档案册</button></div></div>
+<div class="book-subbar"><div role="group" aria-label="档案状态"><button id="active-entries" class="active">已归档</button><button id="trashed-entries">回收站</button></div><span id="storage-status">图像与档案只保存在本机浏览器。</span></div>
+<div id="book-gallery" class="book-gallery"></div><div class="book-pagination"><button id="book-previous">← 上一页</button><span id="book-page">1 / 1</span><button id="book-next">下一页 →</button></div>
+</section>
+</main>
+<footer><span id="source-badge">AI 虚构情境 · 本机处理</span><span id="header-status">一份容量，不同的留存</span><button id="help-footer">作品说明与来源 ↗</button></footer>
+</div>
+
+<dialog id="scene-dialog" class="wide-dialog"><button class="dialog-close" data-close="scene-dialog" aria-label="关闭情境选择">×</button><p class="eyebrow">三种留存问题</p><h2>先决定，你为什么要留下这张图。</h2><p>记忆、行动与证据，不需要保住相同的细节。也可以导入你自己的图像。</p><div id="scene-cards" class="scene-cards"></div></dialog>
+<dialog id="context-dialog"><button class="dialog-close" data-close="context-dialog" aria-label="关闭情境说明">×</button><p class="eyebrow" id="context-theme">记忆</p><h2 id="context-title">情境</h2><p id="context-copy"></p><p class="small-muted" id="context-source"></p><p id="pin-status" class="small-muted">还没有对照</p></dialog>
+<dialog id="save-dialog"><button class="dialog-close" data-close="save-dialog" aria-label="关闭封存">×</button><p class="eyebrow">把理由，也留给未来</p><h2>你想保住什么，愿意失去什么？</h2><p id="save-consequence"></p><form id="save-form"><label>这份档案的名字<input id="entry-title" maxlength="80" required/></label><label>留给未来的理由<textarea id="entry-reason" minlength="2" maxlength="240" required placeholder="我想保住……，因此接受……变淡。"></textarea></label><p class="small-muted">保存处理用无损母图、实际 JPEG 与选择记录。图像不上传；建议导出整册，防止浏览器清理本机存储。</p><p id="save-error" class="error" role="alert"></p><button id="confirm-save" class="primary" type="submit">封存到本机档案册</button></form></dialog>
+<dialog id="entry-dialog"><button class="dialog-close" data-close="entry-dialog" aria-label="关闭档案详情">×</button><p class="eyebrow">一份留存，一段自己的话</p><h2 id="entry-detail-title"></h2><p id="entry-detail-question"></p><blockquote id="entry-detail-reason"></blockquote><p id="entry-detail-meta"></p><p class="small-muted" id="entry-detail-source"></p></dialog>
+<dialog id="about-dialog"><button class="dialog-close" data-close="about-dialog" aria-label="关闭说明">×</button><p class="eyebrow">关于失真档案</p><h2>容量有限，意义由你决定。</h2><p>你选择一个区域，系统在相同容量上限下重新写出 JPEG，再从实际文件回读图像、量化表与系数。保护一处，可能让别处的细节先消失。</p><p>“像素误差”衡量与原图的差异，不代表意义、可辨识度或记忆的价值。浮雕的非 DC 柱高按本块反量化贡献幅度归一化，DC 单独标示。当前搜索为启发式，不保证全局最优。</p><p>固定 8 位 baseline JPEG、4:4:4 采样与基准量化。母图保留，不使用普通模糊模拟压缩。导入图像仅在本机处理，统一缩放至 768×512 范围内，透明区域铺白；原文件不修改。</p><p>档案册包含处理用 PNG、实际 JPEG、区域、预算及你写的理由。旧版“取舍记录”只有参数，缺少图像，无法直接恢复；损坏／不支持版本会明确拒绝且不覆盖现有档案。浏览器存储可能被清理，整册导出文件可用于恢复。</p><p>三张内置图像均为内置 ImageGen 生成的虚构情境，来源与完整提示词在各自素材记录中。JPEG 编解码基于 jpeg-js 0.4.4 扩展。</p><div class="source-links"><a href="/assets/source-info.json" target="_blank" rel="noopener">小事物素材</a><a href="/assets/last-bus-source.json" target="_blank" rel="noopener">末班车素材</a><a href="/assets/mended-cup-source.json" target="_blank" rel="noopener">旧杯素材</a><a href="/assets/third-party-licenses.txt" target="_blank" rel="noopener">许可声明</a></div></dialog>
+<input id="image-file" type="file" accept="image/png,image/jpeg,image/webp" hidden aria-label="选择本机图像"/><input id="book-file" type="file" accept=".json,application/json" hidden aria-label="选择档案册文件"/>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script type="module" src="/src/main.ts"></script>
+</body></html>

@@ -1,0 +1,17 @@
+{
+  "title": "小事物的留存",
+  "kind": "AI-generated demonstration image",
+  "tool": "built-in image_gen",
+  "date": "2026-10-20",
+  "prompt": "Use case: photorealistic-natural. Asset type: a source photograph for an interactive JPEG-compression artwork called Distortion Archive, not a UI screenshot. Create one exquisite overhead editorial still-life photograph, horizontal 3:2 composition, highly realistic tactile materials, soft directional afternoon light, restrained warm ivory, deep brown and faded olive colors. On the LEFT half of the frame a large unlined cream postcard lying almost square to camera, with the clearly readable handwritten English words 'KEEP THE SMALL THINGS' written in five thin dark-ink words over two lines; leave generous paper around the lettering. On the UPPER RIGHT a single old brass door key with its circular bow and teeth entirely visible on a dark wooden tabletop. Across the LOWER RIGHT third, a folded tightly woven herringbone linen cloth with beautiful fine threads and small frayed edges, providing visibly rich high-frequency detail. Three subjects occupy distinct areas with some breathing room. The note should feel personal, the key's silhouette unmistakable, and the cloth full of fine structure. A few subtle grain variations across the wood, naturally photographed rather than computer rendered. Sharp focus across the entire image, no depth-of-field blur, no extreme highlights, no artificial glitch, no JPEG artifacts already added. No people, no brands, no watermarks, no extra text or frame. Generate the full source image, without any interface, labels, arrows, or compression effects.",
+  "original": "archive-still-life.png",
+  "normalized": "archive-study.png",
+  "normalization": {
+    "width": 768,
+    "height": 512,
+    "resampling": "Pillow LANCZOS, RGB, PNG",
+    "reason": "Both encoding strategies use this same normalized image."
+  },
+  "referenceImages": [],
+  "note": "Fictional still life for a runnable prototype; not an actual historical archive. No external reference image was used."
+}

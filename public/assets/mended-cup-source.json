@@ -1,0 +1,16 @@
+{
+  "title": "mended-cup",
+  "kind": "AI-generated fictional scene",
+  "tool": "built-in image_gen",
+  "date": "2026-10-22",
+  "prompt": "Use case: photorealistic-natural. Asset type: source photograph for an interactive JPEG-compression artwork about what a person chooses to keep. Create one horizontal 3:2 close overhead editorial still-life photograph with tack-sharp detail across the entire image. Warm ivory and quiet sage palette, soft natural window light. On the LEFT HALF, a used off-white ceramic cup lies on its side on a pale weathered wooden worktable, showing the full cup silhouette and handle. A fine irregular dark hairline crack runs visibly across the front of the ceramic body, with several tiny scratches and repairs; it is an ordinary mended cup, no gold kintsugi, no cultural pattern. The hairline must be thin and visually distinct against the light ceramic, the texture tangible. On the RIGHT MIDDLE a small rectangular cream repair note lies nearly square to camera, clearly printed with only the EXACT text 'MENDED' and '04/12' on two lines in small dark ink; generous blank paper around the words. The LOWER RIGHT corner contains a folded roughly woven pale grey cotton cloth with many tiny sharp fibers and frayed edges. Distinct spatial areas for the crack in the cup, the written repair date, and the clean overall shape and surrounding material. An intimate believable workbench scene: retaining the damage can preserve a history that a smooth outline does not tell. Natural modest photographic lighting, no blur, no bokeh, no artificial corruption or compression artifacts, no logos, no watermarks, no UI, no people, no extra text or tools.",
+  "original": "mended-cup-original.png",
+  "normalized": "mended-cup.png",
+  "normalization": {
+    "width": 768,
+    "height": 512,
+    "resampling": "Pillow LANCZOS, RGB, PNG"
+  },
+  "referenceImages": [],
+  "note": "Fictional scene for an interactive artwork, not a historical photograph or real case."
+}

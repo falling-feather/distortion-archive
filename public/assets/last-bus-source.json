@@ -1,0 +1,16 @@
+{
+  "title": "last-bus",
+  "kind": "AI-generated fictional scene",
+  "tool": "built-in image_gen",
+  "date": "2026-10-22",
+  "prompt": "Use case: photorealistic-natural. Asset type: source image for an interactive digital artwork about choosing which information survives JPEG compression. Generate a single horizontal 3:2 photograph, full sharp focus across the whole frame. A quiet fictional bus stop on a rainy blue-hour evening, contemplative documentary editorial composition, subtle silver-blue and faded red colors. On the LEFT third, a large weathered rectangular bus stop timetable board faces almost directly toward the camera. Its upper area contains the EXACT readable text 'LAST BUS' on one line and '21:40' below in small plain black lettering on off-white paper; no other readable text. In the MIDDLE RIGHT is one anonymous back-facing person waiting under a muted red umbrella, full figure visible; no visible face or identifying features. The LOWER THIRD and RIGHT EDGE show detailed wet pavement, individual rain ripples and reflections, many sharp small droplets and fine surface textures. Keep these three subjects separated enough to be selectable independently. A still moment between useful departure information, the presence of a waiting person, and the atmosphere of rain. Realistic natural materials and lighting, gentle restrained color grade, readable dark-on-light lettering, no artistic blur, no depth-of-field bokeh, no digital glitch, no pre-added compression artifacts, no dramatic theatrical lighting. No brands, no extra signs or text, no logos, no watermarks, no UI.",
+  "original": "last-bus-original.png",
+  "normalized": "last-bus.png",
+  "normalization": {
+    "width": 768,
+    "height": 512,
+    "resampling": "Pillow LANCZOS, RGB, PNG"
+  },
+  "referenceImages": [],
+  "note": "Fictional scene for an interactive artwork, not a historical photograph or real case."
+}
